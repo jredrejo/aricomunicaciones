@@ -35,3 +35,15 @@ def index():
     user = auth.get_user()
     message = T("Hello {first_name}".format(**user) if user else "Hello")
     return dict(message=message)
+
+
+@unauthenticated("otra", "otra.html")
+def otra():
+    """
+    Esto se ve poniendo en el navegador la url:
+    http://localhost:8000/clase/otra
+    """
+
+
+    kk = 1
+    return dict(variable=kk, nombre = "Manolo")

@@ -1,0 +1,21 @@
+[[extend 'layout.html']]
+
+
+<p>Este es el valor de variable: [[=variable]]</p>
+
+[[if variable == 100:]]
+[[ =nombre]]
+[[else:]]
+<p>No pongo el nombre porque k no vale 100</p>
+<p>Puedes cambiarle el valor de k a 100 en el controlador para que cambie</p>
+[[pass]]
+
+<hr>
+
+<h1>Ejemplo de for</h1>
+
+<ul>
+[[for n in range(10):]]
+  <li>Valor número: [[=n]]</li>
+[[pass]]
+</ul>
