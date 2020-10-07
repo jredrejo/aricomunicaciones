@@ -28,7 +28,7 @@ Warning: Fixtures MUST be declared with @action.uses({fixtures}) else your app w
 from py4web import action, request, abort, redirect, URL
 from yatl.helpers import A
 from .common import db, session, T, cache, auth, logger, authenticated, unauthenticated, flash
-
+from py4web.utils.form import Form
 
 @unauthenticated("index", "index.html")
 def index():
@@ -47,3 +47,19 @@ def otra():
 
     kk = 1
     return dict(variable=kk, nombre = "Manolo")
+
+
+@authenticated("nuevoautor", "nuevoautor.html")
+def nuevo_autor():
+    formulario =Form(db.Autores)
+
+
+    return dict(formulario=formulario)
+
+
+@authenticated("nuevolibro", "nuevolibro.html")
+def nuevo_libro():
+    formulario =Form(db.Libros)
+
+
+    return dict(formulario=formulario)    
