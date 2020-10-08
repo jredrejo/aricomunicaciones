@@ -29,11 +29,12 @@ from py4web import action, request, abort, redirect, URL
 from yatl.helpers import A
 from .common import db, session, T, cache, auth, logger, authenticated, unauthenticated, flash
 from py4web.utils.form import Form
+from py4web.utils.grid import Grid
 
 @unauthenticated("index", "index.html")
 def index():
     user = auth.get_user()
-    message = T("Hello {first_name}".format(**user) if user else "Hello")
+    message = "Hola alumnos de 2º de ARI"
     return dict(message=message)
 
 
@@ -61,5 +62,8 @@ def nuevo_autor():
 def nuevo_libro():
     formulario =Form(db.Libros)
 
+    grid = Grid(db.Libros, editable=False, create=False)
 
-    return dict(formulario=formulario)    
+
+
+    return dict(formulario=formulario, tabla = grid.make())    

@@ -19,15 +19,15 @@ from pydal.validators import *
 
 db.define_table('Autores',
     Field('Nombre',length=50),
-    Field('Apellido', length=100),
-    Field('Nacimiento', 'date'),
+    Field('Apellido', length=100, default="García"),
+    Field('Nacimiento', 'date', required=True),
     format='%(Nombre)s %(Apellido)s'
 
 )
 
 db.define_table('Libros',
-    Field('Titulo', label ="Título sfsdafsd"),
-    Field('Publicacion', 'datetime', label="Fecha de Publicación"),
+    Field('Titulo', label ="Título"),
+    Field('Publicacion', 'datetime', label="Fecha de Publicación", required=True),
     Field('autor', db.Autores)
 
 )
