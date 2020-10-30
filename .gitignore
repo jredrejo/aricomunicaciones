@@ -115,3 +115,8 @@ apps/_*
 *.log
 .service
 password.txt
+# web2py
+
+applications/scada/databases/*
+applications/scada/errors/*
+
