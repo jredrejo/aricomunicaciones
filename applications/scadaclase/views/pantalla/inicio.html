@@ -1,0 +1,50 @@
+{{extend 'layout.html'}}
+
+<button data-estado={{=estado}}  id="led">
+{{ if estado==1:}}    
+    Apaga
+{{else:}}
+    Enciende
+{{pass}}
+</button>
+
+
+
+<script>
+
+function mandarorden(){
+
+    const url_ordenes = 'recibirorden.json'
+
+    estado = led.dataset.estado
+    let datos = {}
+    if (estado== 0.0) {
+        datos = {encender: '1'}
+        led.innerText="Apaga"
+        led.dataset.estado=1.0}
+    else
+        {
+        datos = {encender: '0'}
+        led.innerText="Enciende"
+        led.dataset.estado = 0.0
+        }
+    
+    fetch(url_ordenes,{
+                    method: 'POST', // or 'PUT'
+                    body: JSON.stringify(datos), 
+                    headers:{
+                        'Content-Type': 'application/json'
+                            }
+                }
+        )
+ 
+
+}
+
+
+const led = document.getElementById("led")
+led.addEventListener("click", mandarorden)
+
+
+
+</script>

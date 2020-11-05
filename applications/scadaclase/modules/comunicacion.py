@@ -17,8 +17,10 @@ arduino.flush()
 
 # con first cogemos sólo un registro, el primero que cumpla la condición:
 direccion = db(db.Signals.nombre=='Potenciómetro').select().first()
-print(direccion)
 direccion_id = direccion.id
+
+led = db(db.Signals.nombre=='Led').select().first()
+led_id = led.id
 
 
 while True:
@@ -30,6 +32,14 @@ while True:
     
     # Forzamos la escritura desde el buffer de memoria:
     db.commit()
+
+
+    orden_led = db(db.Ordenes.direccion==led_id).select().first()
+    if orden_led.valor == 1:
+        arduino.write('E'.encode())
+    else:
+        arduino.write('A'.encode())
+    
     time.sleep(1)
 
 
