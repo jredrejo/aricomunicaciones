@@ -1,0 +1,166 @@
+{{extend 'layout.html'}}
+
+
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Capa_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 109.986 429.83701"
+   xml:space="preserve"
+   sodipodi:docname="termometro.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   width="109.986"
+   height="429.83701"><metadata
+   id="metadata4727"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs4725" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1015"
+   id="namedview4723"
+   showgrid="false"
+   inkscape:zoom="0.921875"
+   inkscape:cx="-493.84142"
+   inkscape:cy="286.65486"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_1" />
+
+
+<path
+   style="fill:#415870"
+   d="m 109.986,374.839 c 0,30.331 -24.667,54.998 -54.988,54.998 C 24.667,429.837 0,405.17 0,374.839 0,358.879 6.931,343.719 19.014,333.246 L 34.729,319.63 V 20.269 C 34.729,9.096 43.814,0 54.998,0 66.171,0 75.256,9.096 75.256,20.269 v 299.36 l 15.715,13.616 c 12.084,10.474 19.015,25.634 19.015,41.594 z"
+   id="path4668"
+   inkscape:connector-curvature="0" />
+
+
+
+
+<g
+   id="g4692"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4694"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4696"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4698"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4700"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4702"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4704"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4706"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4708"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4710"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4712"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4714"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4716"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4718"
+   transform="translate(-129.03,-45.536)">
+</g>
+<g
+   id="g4720"
+   transform="translate(-129.03,-45.536)">
+</g>
+<ellipse
+   style="fill:#81e700;fill-opacity:1;stroke:#812200;stroke-opacity:0"
+   id="path4729"
+   cx="55.376785"
+   cy="375.34534"
+   rx="45.559322"
+   ry="43.389832" />
+   
+   
+   <rect
+   style="fill:#81e700;fill-opacity:1;stroke:#812200;stroke-opacity:0"
+   id="nivel"
+   width="23.864407"
+   height="304.81357"
+   x="43.389832"
+   y="24.14209" />
+   
+   <rect
+   style="fill:#415870"
+   id="nivel2"
+   width="23.864407"
+   height="304.81357"
+   x="43.389862"
+   y="24.142101" /></svg>
+
+   <button id="mover"> mover </button>
+   <button id="color">color</button>
+
+   <script>
+
+    function mueve(){
+        nivel.setAttribute("height", nivel.attributes.height.value - 10)
+    }
+
+    function cambiaColor() {
+        const fondo = document.getElementById("nivel")
+        let color_fondo = fondo.attributes.style.nodeValue
+        if (color_fondo == "fill:#81e700;fill-opacity:1;stroke:#812200;stroke-opacity:0")
+            fondo.setAttribute("style", "fill:#c73c00;fill-opacity:1;stroke:#812200;stroke-opacity:0")
+        else
+            fondo.setAttribute("style", "fill:#81e700;fill-opacity:1;stroke:#812200;stroke-opacity:0")
+    }
+
+    const botonMover = document.getElementById("mover")
+    const botonColor = document.getElementById("color")
+    const nivel = document.getElementById("nivel2")
+    botonMover.addEventListener("click", mueve)
+    botonColor.addEventListener("click", cambiaColor)
+
+   </script>
