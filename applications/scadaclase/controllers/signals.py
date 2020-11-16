@@ -27,3 +27,21 @@ def valor_potenciometro():
     registro_potenciometro = db(db.Valores.direccion==potenciometro_id).select().last()
 
     return dict(potenciometro=registro_potenciometro.valor)
+
+def prueba():
+
+    potenciometro = db(db.Signals.nombre=='Potenciómetro').select().first()
+    potenciometro_id = potenciometro.id
+
+    grid = SQLFORM.grid(db.Valores.direccion==potenciometro_id, csv=False,
+    fields=(db.Valores.Fecha, db.Valores.valor),
+    searchable=False, details=False)
+    return dict(rejilla=grid)
+
+def datos_potenciometro():
+    potenciometro = db(db.Signals.nombre=='Potenciómetro').select().first()
+    potenciometro_id = potenciometro.id
+
+    datos = db(db.Valores.direccion==potenciometro_id).select(db.Valores.Fecha, db.Valores.valor)
+
+    return dict(datos=datos)
