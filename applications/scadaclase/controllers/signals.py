@@ -42,6 +42,8 @@ def datos_potenciometro():
     potenciometro = db(db.Signals.nombre=='Potenciómetro').select().first()
     potenciometro_id = potenciometro.id
 
-    datos = db(db.Valores.direccion==potenciometro_id).select(db.Valores.Fecha, db.Valores.valor)
+    condicion = db.Valores.direccion==potenciometro_id and db.Valores.Fecha < '2020-11-05 10:24'
+
+    datos = db(condicion).select(db.Valores.Fecha, db.Valores.valor)
 
     return dict(datos=datos)
