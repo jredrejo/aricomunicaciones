@@ -16,7 +16,7 @@
   {{=rejilla}}
 
     <h4>Esta es la primera gráfica:</h4>
-    <div class="ct-chart ct-perfect-fourth"></div>
+    <div class="ct-chart"></div>
 
 
 
@@ -31,7 +31,9 @@
 const url= "datos_potenciometro.json"
 var options = {
     width: 1000,
-    height: 500
+    height: 500,
+    // showPoint: false,
+    // lineSmooth: false,
     };
 
 
@@ -44,18 +46,15 @@ fetch(url).
               const fechas = datos.datos.map(function(dato){ return dato.Fecha    })
               const valores = datos.datos.map(function(dato){ return dato.valor    })
 
-
-                    var data = {
+              var data = {
                 // A labels array that can contain any sort of values
-                labels: fechas,
-                // Our series array that contains series objects or in this case series data arrays
-                series: [
-                  valores
-                ]
+                  labels: fechas,
+                  // Our series array that contains series objects or in this case series data arrays
+                  series: [
+                     valores
+                        ]
               };
-
-
-                    new Chartist.Line('.ct-chart', data, options);
+              new Chartist.Line('.ct-chart', data, options);
 
 
 

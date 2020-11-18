@@ -28,15 +28,28 @@ def valor_potenciometro():
 
     return dict(potenciometro=registro_potenciometro.valor)
 
-def prueba():
 
+def prueba():
+    # como la página de la graica con plotly o chartist
+    # solo cambia en la parte de JavaScript, hago una
+    # función para las dos, ya que en Python son idénticas
+
+    # obtener el id de la señal llamada Potenciómetro:
     potenciometro = db(db.Signals.nombre=='Potenciómetro').select().first()
     potenciometro_id = potenciometro.id
-
+    
+    # obtener un grid con los valores sólo del potenciómetro:
     grid = SQLFORM.grid(db.Valores.direccion==potenciometro_id, csv=False,
     fields=(db.Valores.Fecha, db.Valores.valor),
     searchable=False, details=False)
+
     return dict(rejilla=grid)
+
+def grafica_chartist():
+    return prueba()
+
+def grafica_plotly():
+    return prueba()
 
 def datos_potenciometro():
     potenciometro = db(db.Signals.nombre=='Potenciómetro').select().first()

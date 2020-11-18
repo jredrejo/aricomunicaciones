@@ -8,7 +8,8 @@
 response.menu = [
     ('Potenciómetro', False, '#', [
         ('Datos', False, URL('default', 'potenciometro'), []),
-        ('Gráfica', False, URL('signals', 'prueba'), [])
+        ('Gráfica con chartist', False, URL('signals', 'grafica_chartist'), []),
+        ('Gráfica con plotly', False, URL('signals', 'grafica_plotly'), [])
 
     ]),
     ('Led', False, URL('pantalla', 'inicio'), []),

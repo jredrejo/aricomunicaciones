@@ -1,0 +1,56 @@
+{{extend 'layout.html'}}
+
+
+<body>
+<h1>Esta es la tabla de valores</h1>
+  {{=rejilla}}
+
+    <h4>Esta es la primera gráfica:</h4>
+    <div id="ct-chart"></div>
+
+
+
+
+
+
+
+<script src="{{=URL('static','js/plotly-latest.min.js')}}"></script>
+<script>
+
+const url= "datos_potenciometro.json"
+var options = {
+    width: 1000,
+    height: 500
+    };
+
+
+fetch(url).
+  then(function(datos_en_bruto) {
+      datos_en_bruto.json()
+        .then (function(datos){
+              
+
+              const fechas = datos.datos.map(function(dato){ return dato.Fecha    })
+              const valores = datos.datos.map(function(dato){ return dato.valor    })
+
+              var data = [ potenciometro= {
+                                    x: fechas,
+                                    y: valores,
+                                    type: 'scatter'
+                                    },
+                                  
+                          ]
+              Plotly.newPlot('ct-chart', data)
+
+
+    })
+})
+
+
+
+
+
+</script>
+
+
+
